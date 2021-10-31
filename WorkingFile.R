@@ -100,4 +100,22 @@ ggplot(data = trainFraud, aes(x=gender)) +
     plot.title = element_text(hjust = 0.5),
     axis.ticks = element_blank())
 
+#Boxplots for Outlier Identification
+ggplot(train, aes(x = is_fraud, y = dob)) +
+  geom_boxplot()
+#Appears to be an outlier for real transactions based on ewarlier DOB
+
+ggplot(train, aes(x = gender, y = amt, color = is_fraud)) +
+  geom_boxplot()
+#Both males and females tend to have similar spending habits with high value outliers 
+
+ggplot(train, aes(x = merch_lat, y = lat, color = is_fraud)) +
+  geom_boxplot()
+#Similar latitudes between the customer and the merchant for
+#fraud and real transactions with some higher outliers and a few lower 
+
+ggplot(train, aes(x = merch_long, y = long, color = is_fraud)) +
+  geom_boxplot()
+#Similar longitudes between the customer and the merchant for
+#fraud and real transactions with some lower outliers
 
